@@ -22,7 +22,10 @@ export class SignInComponent implements OnInit {
         this.loginForm = this.formBuilder.group({
             userName: ['', Validators.required],
             password: ['', Validators.required]
-        });       
+        });
+
+        this.platformDetectionService.isPlatformBrowser() &&
+        this.userNameInput.nativeElement.focus();
     }
 
     login() {
